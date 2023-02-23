@@ -1,0 +1,19 @@
+<html>
+<body>
+<script>
+document.addEventListener("DOMContentLoaded", function(event) { 
+	var ws = new WebSocket("ws://dvws.local:8080/change-password");
+	ws.onopen = function(changepass) {
+		console.log("connect");
+	    ws.send('{"npass":"certus"}');
+	};
+	ws.onmessage = function(changepass) {
+		console.log(changepass.data);
+	};
+	ws.onclose = function(changepass) {
+		console.log("disconnect");
+	};
+});
+</script>
+</body>
+</html>
